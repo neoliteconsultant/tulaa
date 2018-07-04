@@ -1,7 +1,7 @@
 package io.tulaa;
 
 /**
- * Tulaa Software Engineering Interview Quiz.
+ * Tulaa Software Engineering Interview Quiz Solutions.
  * <p>
  * Copyright (c) <a href="http://www.ekenya.co.ke/">Eclectic International</a>.,
  * Jul 3, 2018,

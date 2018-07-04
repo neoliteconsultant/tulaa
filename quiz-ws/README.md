@@ -1,5 +1,6 @@
 # About
-Tulaa Software Engineering Interview questions for Full stack software engineer position.
+A web service that exposes a function to reverse a string while preserving the position of 
+special characters.
 
 
 
@@ -14,10 +15,9 @@ the following tools
 
 
 
-
 ### Running the project     
 
-1. To run the project, navigate to the project root (quiz-standalone).
+1. To run the project, navigate to the project root (quiz-ws).
 
    
 2. Build an executable jar at the command line :
@@ -25,7 +25,18 @@ the following tools
 
 
 3. Run the application:
-   $  java -jar target\quiz-standalone-1.0.jar
+   $  java -jar target\quiz-ws-1.0.jar
+
+
+### Calling API Endpoints
+
+Now that the service is up, make a HTTP post method to:
+ (http://localhost:8097/api/v1/quiz/reversetext) 
+
+supplying the text to reverse in the request body in JSON format, i.e
+{
+    "content": "a,b#@c"
+}
 
 
 
