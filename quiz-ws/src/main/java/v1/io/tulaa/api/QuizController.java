@@ -25,7 +25,7 @@ public class QuizController {
      * End point for reversing string while preserving the position of special characters.
      *
      * @param textRequest string to reverse
-     * @return
+     * @return reversed string.
      */
     @RequestMapping(value = "/reversetext", method = POST)
     public Quiz reverseText(@RequestBody TextRequest textRequest) {

@@ -9,8 +9,8 @@ public class Quiz {
 
     /**
      *
-     * @param input
-     * @param output
+     * @param input text input
+     * @param output text output
      */
     public Quiz(String input, String output) {
         this.input = input;

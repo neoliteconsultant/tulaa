@@ -1,5 +1,5 @@
 # About
-A web service that exposes a function to reverse a string while preserving the position of 
+A Spring Boot web service that exposes a function to reverse a string while preserving the position of 
 special characters.
 
 
@@ -25,15 +25,15 @@ the following tools
 
 
 3. Run the application:
-   $  java -jar target\quiz-ws-1.0.jar
+   $  java -jar target\quiz-ws-1.0.0.jar
 
 
 ### Calling API Endpoints
 
-Now that the service is up, make a HTTP post method to:
- (http://localhost:8097/api/v1/quiz/reversetext) 
+Now that the service is up, make a HTTP POST request to:
+ http://localhost:8097/api/v1/quiz/reversetext
 
-supplying the text to reverse in the request body in JSON format, i.e
+by supplying the text to reverse in the request body in JSON format, i.e
 {
     "content": "a,b#@c"
 }
@@ -41,7 +41,7 @@ supplying the text to reverse in the request body in JSON format, i.e
 
 
 
-### Test
+### Testing
 To run unit tests, run mvn test in a shell/command line from the project root.
   $ mvn test
  

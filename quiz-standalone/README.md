@@ -1,5 +1,6 @@
 # About
-Tulaa Software Engineering Interview questions for Full stack software engineer position.
+Java SE application containing solutions to Engineering Interview questions 
+for the Full stack software engineer position.
 
 
 
@@ -18,7 +19,7 @@ the following tools
 ### Running the project     
 
 1. To run the project, navigate to the project root (quiz-standalone).
-
+   
    
 2. Build an executable jar at the command line :
    $ mvn package

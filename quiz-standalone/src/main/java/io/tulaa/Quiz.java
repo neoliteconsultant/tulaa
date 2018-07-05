@@ -1,10 +1,13 @@
 package io.tulaa;
 
+import java.util.Arrays;
+
 /**
  * Tulaa Software Engineering Interview Quiz Solutions.
  * <p>
  * Copyright (c) <a href="http://www.ekenya.co.ke/">Eclectic International</a>.,
  * Jul 3, 2018,
+ *
  * @author <a href="tonyafula@gmail.com">Tony Afula</a>
  */
 public class Quiz {
@@ -53,100 +56,106 @@ public class Quiz {
     /**
      * Find count of triplets with sum smaller than given sum value.
      *
-     * @param arr array of distinct integers.
+     * @param inputArray array of distinct integers.
      * @param sum sum value.
      * @return count of triplets with sum smaller than given sum value.
      */
-    public int getTripletCount(int[] arr, int sum) {
+    public int getTripletCount(int[] inputArray, int sum) {
         int tripletCount = 0;
 
-        int length = arr.length;
-        int total = 0;
-        int firstLoopSize = length - 2;
-        int secondLoopSize = length - 1;
-        for (int i = 0; i < firstLoopSize; ++i) {//find the first element
-            for (int j = i + 1; j < secondLoopSize; ++j) {//find the second element
+        Arrays.sort(inputArray);//Sort the input array in increasing order.
 
-                for (int k = j + 1; k < length; ++k) {//find the third element
-                    total = arr[i] + arr[j] + arr[k];
+        int length = inputArray.length;
+        int secondLastArrayIndex = length - 2;
+        for (int i = 0; i < secondLastArrayIndex; i++) {
+            // Declare and initialize the other two elements
+            int j = i + 1, k = length - 1;
 
-                    if (total < sum) {
-                        ++tripletCount;
-                        //System.out.println("{" + arr[i] + "," + arr[j] + "," + arr[k] + "}");
-                    }
+            while (j < k) {
+                // If the sum of of the triplet is greater than or equal to the given sum,
+                // move right corner to look for smaller values
+                if (inputArray[i] + inputArray[j] + inputArray[k] >= sum) {
+                    k--;
+                } else {// move to the left side
+                    tripletCount += (k - j);
+                    j++;
                 }
-
             }
         }
 
         return tripletCount;
 
     }
-    
+
     /**
      * Check if array contains a triplet satisfying Pythagorean theorem.
      *
-     * @param arr array of distinct integers.
-     * @return <code>true</code> if there is a triplet satisfying Pythagorean theorem,
-     * <code>false</code> otherwise.
+     * @param arrayInput array of distinct integers.
+     * @return <code>true</code> if there is a triplet satisfying Pythagorean
+     * theorem, <code>false</code> otherwise.
      */
-    public boolean existPythagoreanTriplet(int[] arr) {
-        int length = arr.length;
-       
-        int a,b,c;
-        for (int i = 0; i < length; ++i) {
-            for (int j = i + 1; j < length; ++j) {
+    public boolean existPythagoreanTriplet(int[] arrayInput) {
+        int length = arrayInput.length;
 
-                for (int k = j + 1; k < length; ++k) {
-                   
-                    a =arr[i]*arr[i];
-                    b= arr[j]*arr[j];
-                    c=(arr[k]*arr[k]); 
+        // Square each array element
+        for (int i = 0; i < length; i++) {
+            arrayInput[i] = arrayInput[i] * arrayInput[i];
+        }
 
-                    if (a==(b+c)||b==(c+a)||c==(a+b)) {
-                        //System.out.println("{" + arr[i] + "," + arr[j] + "," + arr[k] + "}");
-                        
-                        return true;
-                    }
+        // Sort array in increasing order
+        Arrays.sort(arrayInput);
+
+        
+        for (int i = length - 1; i >= 2; i--) {
+            int leftIndex = 0; // index of the first element in array
+            int rightIndex = i - 1; // index of the last element in array
+            while (leftIndex < rightIndex) {
+                // Elements satisfying pythagorem theorem found
+                if (arrayInput[leftIndex] + arrayInput[rightIndex] == arrayInput[i]) {
+                    return true;
                 }
 
+                if (arrayInput[leftIndex] + arrayInput[rightIndex] < arrayInput[i]) {//Move to the 'leftIndex'.
+                    leftIndex++;
+                } else {//Move to the right index.
+                    rightIndex--;
+                }
             }
         }
 
         return false;
 
     }
-    
+
     public static void main(String[] args) {
-        Quiz quiz=new Quiz();
-        
-        String text="Ab,c,de!$";
-        String reversedText=quiz.reverseWord(text);
+        Quiz quiz = new Quiz();
+
+        String text = "Ab,c,de!$";
+        String reversedText = quiz.reverseWord(text);
         System.out.println("1.Reverse the string in a way that special characters are not affected");
-        System.out.println("Input\t"+text);
-        System.out.println("Output\t"+reversedText);
-        
+        System.out.println("Input\t" + text);
+        System.out.println("Output\t" + reversedText);
+
         System.out.println();
-        
+
         int[] arr = {5, 1, 3, 4, 7};
         int sum = 12;
         int tripletCount = quiz.getTripletCount(arr, sum);
         System.out.println("2. Given an array of distinct integers and a sum value."
                 + " Find count of triplets with sum smaller than given sum value");
-        
-         System.out.println("Input\t"+IntegerUtil.toString(arr)+" sum value "+sum);
-         System.out.println("Output\t"+tripletCount);
-         
-         
-         System.out.println();
-        
+
+        System.out.println("Input\t" + IntegerUtil.toString(arr) + " sum value " + sum);
+        System.out.println("Output\t" + tripletCount);
+
+        System.out.println();
+
         int[] inputArray = {3, 1, 4, 6, 5};
         boolean result = quiz.existPythagoreanTriplet(inputArray);
         System.out.println("3. Check if array contains a triplet satisfying Pythagorean theorem");
-        
-         System.out.println("Input\t"+IntegerUtil.toString(inputArray));
-         System.out.println("Output\t"+result);
-        
+
+        System.out.println("Input\t" + IntegerUtil.toString(inputArray));
+        System.out.println("Output\t" + result);
+
     }
 
 }
