@@ -22,24 +22,33 @@ the following tools
    
    
 2. Build an executable jar at the command line :
+
+   ```
    $ mvn package
+   ```
 
 
 3. Run the application:
+   ```
    $  java -jar target\quiz-standalone-1.0.jar
+   ```
 
 
 
 
 ### Test
 To run unit tests, run mvn test in a shell/command line from the project root.
+  ```
   $ mvn test
+  ```
  
  
 
 ### Javadoc 
 To generate javadocs, run mvn javadoc:javadoc goal in a shell from the project root.
+  ```
   $ mvn javadoc:javadoc
+  ```
 
 The generated javadoc is located in target/site/apidocs
   

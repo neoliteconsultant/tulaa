@@ -3,24 +3,28 @@
 
 
 # Tulaa
-Tulaa is a project containing solutions to interview questions for the Fullstack Software Engineer post at  
-[Tulaa](https://www.tulaa.io/).
+Tulaa is a project consisting of a stand alone  and web service
+application for reversing a string
 
 ## Project structure
 Project is subdivided into three sections:
 
-1. quiz-standalone: a Java SE application.It contains solutions to **Part A** of the quiz.
-2. quiz-ws: a web service exposing the method for reversing a string (question 1)
-3. QuizApp: an android app/web service client that consumes the web service created in (2)
+1. quiz-standalone: a Java SE application for reversing a string.
+2. quiz-ws: a web service exposing the method for reversing a string.
+3. QuizApp: an android app/web service client that consumes the reverse string web service.
 
 ## Installation
 1. Clone the project locally. At the command line:
 
+    ```
     $ git clone https://github.com/neoliteconsultant/tulaa.git
+    ```
 
 2. cd to tulaa folder
 
-    $ cd tulaa    
+    ```
+    $ cd tulaa 
+    ```   
 
 3. Refer to the README.md of each sub-project for instructions on running the application.
 
